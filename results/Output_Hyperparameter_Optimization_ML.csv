@@ -1,0 +1,5 @@
+Model,Model Params,MAE,RMSE,r
+LR,"{'fit_intercept': True, 'positive': False}",1.46,2.08,0.58
+ENet,"{'alpha': 0.01, 'l1_ratio': 0.2, 'max_iter': 1000}",0.95,1.23,0.77
+SVM,"{'C': 10, 'epsilon': 0.01, 'gamma': 'scale', 'kernel': 'rbf'}",0.77,1.0,0.86
+RF,"{'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100}",0.86,1.14,0.81
