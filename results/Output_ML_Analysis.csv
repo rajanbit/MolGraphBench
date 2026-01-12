@@ -1,0 +1,13 @@
+,Data,Model,MAE,RMSE,r,p-val
+0,ESOL,LR,1.5,2.16,0.64,0.0
+1,FreeSolv,LR,1.38,2.2,0.84,0.0
+2,Lipophilicity,LR,0.92,1.28,0.58,0.0
+3,ESOL,ENet,0.89,1.15,0.85,0.0
+4,FreeSolv,ENet,1.28,2.07,0.87,0.0
+5,Lipophilicity,ENet,0.69,0.87,0.71,0.0
+6,ESOL,SVM,0.72,1.0,0.89,0.0
+7,FreeSolv,SVM,1.23,2.01,0.88,0.0
+8,Lipophilicity,SVM,0.52,0.71,0.82,0.0
+9,ESOL,RF,0.9,1.17,0.85,0.0
+10,FreeSolv,RF,1.48,2.38,0.84,0.0
+11,Lipophilicity,RF,0.64,0.84,0.74,0.0
