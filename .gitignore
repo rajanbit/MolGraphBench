@@ -1,0 +1,7 @@
+# build-artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# jupyter-notebook
+**/.ipynb_checkpoints/
