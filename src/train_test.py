@@ -2,6 +2,11 @@
 import torch
 from torch.optim import Adam
 from torch.nn.functional import mse_loss
+import warnings
+warnings.filterwarnings(
+    "ignore",
+    message="Attempting to run cuBLAS"
+)
 
 # Model training function
 def TrainGNN(model, training_loader, epochs=10, learning_rate=0.01):
@@ -30,9 +35,17 @@ def TrainGNN(model, training_loader, epochs=10, learning_rate=0.01):
 	# Optimizer
 	optimizer = Adam(model.parameters(), lr=learning_rate)
 
+	# Device
+	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+	torch.cuda.init()
+	
+	# Load model to device
+	model = model.to(device)
+
 	# Training loop
 	for e in range(epochs):
 		for data in training_loader:
+			data = data.to(device)
 			optimizer.zero_grad()
 			out = model(data.x, data.edge_index, data.batch)
 			loss = mse_loss(out.view(-1).cpu(), data.y.view(-1).cpu())
@@ -62,11 +75,19 @@ def TestGNN(model, testing_loader):
 
 	model.eval()
 	y_pred, y_test = [], []
+
+	# Device
+	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+	torch.cuda.init()
+	
+	# Load model to device
+	model = model.to(device)
+
 	with torch.no_grad():
 
 		# Validation/Testing loop
 		for data in testing_loader:
-			data = data.to('cpu')
+			data = data.to(device)
 			out = model(data.x, data.edge_index, data.batch)
 			out = out.view(-1).cpu()
 			y = data.y.view(-1).cpu()

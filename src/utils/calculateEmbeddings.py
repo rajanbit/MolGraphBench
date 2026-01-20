@@ -29,8 +29,7 @@ def smiles2X(smiles):
 		node.GetAtomicNum(), node.GetTotalDegree(),
 		node.GetTotalValence(), node.GetFormalCharge(),
 		node.GetTotalNumHs(), node.GetNumRadicalElectrons(),
-		int(node.GetHybridization()), int(node.GetIsAromatic()),
-		int(node.IsInRing()), node.GetMass(), int(node.GetChiralTag())]
+		int(node.GetHybridization()), int(node.GetIsAromatic())]
 		
 		# Append node i embedding in X
 		X.append(node_X)
