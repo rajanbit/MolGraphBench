@@ -1,0 +1,288 @@
+LR = 0.01
+h_dim = 16
+b_size = 4
+MAE = 1.21
+RMSE = 1.53
+Pearson correlation coefficient = 0.79, P-value= 0.0
+LR = 0.01
+h_dim = 16
+b_size = 8
+MAE = 1.04
+RMSE = 1.32
+Pearson correlation coefficient = 0.75, P-value= 0.0
+LR = 0.01
+h_dim = 16
+b_size = 16
+MAE = 1.07
+RMSE = 1.35
+Pearson correlation coefficient = 0.73, P-value= 0.0
+LR = 0.01
+h_dim = 16
+b_size = 32
+MAE = 1.05
+RMSE = 1.31
+Pearson correlation coefficient = 0.73, P-value= 0.0
+LR = 0.01
+h_dim = 32
+b_size = 4
+MAE = 1.02
+RMSE = 1.27
+Pearson correlation coefficient = 0.75, P-value= 0.0
+LR = 0.01
+h_dim = 32
+b_size = 8
+MAE = 1.04
+RMSE = 1.34
+Pearson correlation coefficient = 0.77, P-value= 0.0
+LR = 0.01
+h_dim = 32
+b_size = 16
+MAE = 1.0
+RMSE = 1.23
+Pearson correlation coefficient = 0.78, P-value= 0.0
+LR = 0.01
+h_dim = 32
+b_size = 32
+MAE = 0.95
+RMSE = 1.2
+Pearson correlation coefficient = 0.79, P-value= 0.0
+LR = 0.01
+h_dim = 64
+b_size = 4
+MAE = 1.15
+RMSE = 1.49
+Pearson correlation coefficient = 0.74, P-value= 0.0
+LR = 0.01
+h_dim = 64
+b_size = 8
+MAE = 0.96
+RMSE = 1.25
+Pearson correlation coefficient = 0.78, P-value= 0.0
+LR = 0.01
+h_dim = 64
+b_size = 16
+MAE = 1.0
+RMSE = 1.25
+Pearson correlation coefficient = 0.77, P-value= 0.0
+LR = 0.01
+h_dim = 64
+b_size = 32
+MAE = 1.07
+RMSE = 1.4
+Pearson correlation coefficient = 0.79, P-value= 0.0
+LR = 0.01
+h_dim = 128
+b_size = 4
+MAE = 1.08
+RMSE = 1.31
+Pearson correlation coefficient = 0.76, P-value= 0.0
+LR = 0.01
+h_dim = 128
+b_size = 8
+MAE = 1.04
+RMSE = 1.31
+Pearson correlation coefficient = 0.74, P-value= 0.0
+LR = 0.01
+h_dim = 128
+b_size = 16
+MAE = 0.93
+RMSE = 1.18
+Pearson correlation coefficient = 0.79, P-value= 0.0
+LR = 0.01
+h_dim = 128
+b_size = 32
+MAE = 0.99
+RMSE = 1.22
+Pearson correlation coefficient = 0.8, P-value= 0.0
+LR = 0.005
+h_dim = 16
+b_size = 4
+MAE = 0.97
+RMSE = 1.22
+Pearson correlation coefficient = 0.78, P-value= 0.0
+LR = 0.005
+h_dim = 16
+b_size = 8
+MAE = 1.18
+RMSE = 1.43
+Pearson correlation coefficient = 0.77, P-value= 0.0
+LR = 0.005
+h_dim = 16
+b_size = 16
+MAE = 1.12
+RMSE = 1.48
+Pearson correlation coefficient = 0.7, P-value= 0.0
+LR = 0.005
+h_dim = 16
+b_size = 32
+MAE = 1.43
+RMSE = 1.83
+Pearson correlation coefficient = 0.4, P-value= 0.0
+LR = 0.005
+h_dim = 32
+b_size = 4
+MAE = 0.99
+RMSE = 1.27
+Pearson correlation coefficient = 0.8, P-value= 0.0
+LR = 0.005
+h_dim = 32
+b_size = 8
+MAE = 1.01
+RMSE = 1.3
+Pearson correlation coefficient = 0.75, P-value= 0.0
+LR = 0.005
+h_dim = 32
+b_size = 16
+MAE = 1.0
+RMSE = 1.22
+Pearson correlation coefficient = 0.79, P-value= 0.0
+LR = 0.005
+h_dim = 32
+b_size = 32
+MAE = 1.04
+RMSE = 1.36
+Pearson correlation coefficient = 0.71, P-value= 0.0
+LR = 0.005
+h_dim = 64
+b_size = 4
+MAE = 0.96
+RMSE = 1.18
+Pearson correlation coefficient = 0.8, P-value= 0.0
+LR = 0.005
+h_dim = 64
+b_size = 8
+MAE = 0.91
+RMSE = 1.17
+Pearson correlation coefficient = 0.81, P-value= 0.0
+LR = 0.005
+h_dim = 64
+b_size = 16
+MAE = 0.91
+RMSE = 1.15
+Pearson correlation coefficient = 0.8, P-value= 0.0
+LR = 0.005
+h_dim = 64
+b_size = 32
+MAE = 1.11
+RMSE = 1.44
+Pearson correlation coefficient = 0.78, P-value= 0.0
+LR = 0.005
+h_dim = 128
+b_size = 4
+MAE = 0.92
+RMSE = 1.18
+Pearson correlation coefficient = 0.8, P-value= 0.0
+LR = 0.005
+h_dim = 128
+b_size = 8
+MAE = 0.91
+RMSE = 1.12
+Pearson correlation coefficient = 0.81, P-value= 0.0
+LR = 0.005
+h_dim = 128
+b_size = 16
+MAE = 1.34
+RMSE = 1.69
+Pearson correlation coefficient = 0.8, P-value= 0.0
+LR = 0.005
+h_dim = 128
+b_size = 32
+MAE = 1.1
+RMSE = 1.38
+Pearson correlation coefficient = 0.76, P-value= 0.0
+LR = 0.001
+h_dim = 16
+b_size = 4
+MAE = 1.21
+RMSE = 1.51
+Pearson correlation coefficient = 0.63, P-value= 0.0
+LR = 0.001
+h_dim = 16
+b_size = 8
+MAE = 1.4
+RMSE = 1.77
+Pearson correlation coefficient = 0.42, P-value= 0.0
+LR = 0.001
+h_dim = 16
+b_size = 16
+MAE = 1.4
+RMSE = 1.72
+Pearson correlation coefficient = 0.47, P-value= 0.0
+LR = 0.001
+h_dim = 16
+b_size = 32
+MAE = 1.38
+RMSE = 1.73
+Pearson correlation coefficient = 0.47, P-value= 0.0
+LR = 0.001
+h_dim = 32
+b_size = 4
+MAE = 1.12
+RMSE = 1.39
+Pearson correlation coefficient = 0.7, P-value= 0.0
+LR = 0.001
+h_dim = 32
+b_size = 8
+MAE = 1.24
+RMSE = 1.52
+Pearson correlation coefficient = 0.62, P-value= 0.0
+LR = 0.001
+h_dim = 32
+b_size = 16
+MAE = 1.26
+RMSE = 1.56
+Pearson correlation coefficient = 0.59, P-value= 0.0
+LR = 0.001
+h_dim = 32
+b_size = 32
+MAE = 1.33
+RMSE = 1.65
+Pearson correlation coefficient = 0.53, P-value= 0.0
+LR = 0.001
+h_dim = 64
+b_size = 4
+MAE = 0.94
+RMSE = 1.19
+Pearson correlation coefficient = 0.79, P-value= 0.0
+LR = 0.001
+h_dim = 64
+b_size = 8
+MAE = 1.09
+RMSE = 1.4
+Pearson correlation coefficient = 0.7, P-value= 0.0
+LR = 0.001
+h_dim = 64
+b_size = 16
+MAE = 1.14
+RMSE = 1.47
+Pearson correlation coefficient = 0.67, P-value= 0.0
+LR = 0.001
+h_dim = 64
+b_size = 32
+MAE = 1.24
+RMSE = 1.52
+Pearson correlation coefficient = 0.62, P-value= 0.0
+LR = 0.001
+h_dim = 128
+b_size = 4
+MAE = 0.93
+RMSE = 1.19
+Pearson correlation coefficient = 0.81, P-value= 0.0
+LR = 0.001
+h_dim = 128
+b_size = 8
+MAE = 0.98
+RMSE = 1.22
+Pearson correlation coefficient = 0.78, P-value= 0.0
+LR = 0.001
+h_dim = 128
+b_size = 16
+MAE = 1.36
+RMSE = 1.62
+Pearson correlation coefficient = 0.75, P-value= 0.0
+LR = 0.001
+h_dim = 128
+b_size = 32
+MAE = 1.24
+RMSE = 1.52
+Pearson correlation coefficient = 0.62, P-value= 0.0

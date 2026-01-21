@@ -1,0 +1,5 @@
+Model = SVM 
+Model Params = {'C': 10, 'epsilon': 0.01, 'gamma': 'scale', 'kernel': 'rbf'}
+MAE = 0.77
+RMSE = 1.0
+Pearson correlation coefficient = 0.86, P-value= 0.0

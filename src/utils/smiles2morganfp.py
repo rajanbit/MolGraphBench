@@ -3,14 +3,15 @@ import numpy as np
 import pandas as pd
 from rdkit import DataStructs
 from rdkit import Chem
-from rdkit.Chem.rdMolDescriptors import GetMorganFingerprintAsBitVect
+from rdkit.Chem.rdFingerprintGenerator import GetMorganGenerator
 
 # Function to convert smiles into morgan fingerprint (FP)
 def smiles2MorganFP(smiles, radius=2, nBits=2048):
 	mol = Chem.MolFromSmiles(smiles)
 	if mol is None:
 		return None
-	fp = GetMorganFingerprintAsBitVect(mol, radius=radius, nBits=nBits)
+	fp_gen = GetMorganGenerator(radius=radius, fpSize=nBits)
+	fp = fp_gen.GetFingerprint(mol)
 	arr = np.zeros((nBits,), dtype=int)
 	DataStructs.ConvertToNumpyArray(fp, arr)
 	return arr
