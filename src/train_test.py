@@ -37,7 +37,6 @@ def TrainGNN(model, training_loader, epochs=10, learning_rate=0.01):
 
 	# Device
 	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-	torch.cuda.init()
 	
 	# Load model to device
 	model = model.to(device)
@@ -78,7 +77,6 @@ def TestGNN(model, testing_loader):
 
 	# Device
 	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-	torch.cuda.init()
 	
 	# Load model to device
 	model = model.to(device)

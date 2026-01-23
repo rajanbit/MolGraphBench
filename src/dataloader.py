@@ -7,7 +7,7 @@ from src.utils.calculateAdjacency import smiles2A
 from src.utils.calculateEmbeddings import smiles2X
 
 # Dataloader function
-def loadData(X, y, batch_size=4, f_in=8):
+def loadData(X, y, batch_size=4, f_in=8, shuf=True):
 	'''
 	This function take numpy array of SMILES strings and target labels
 	as input and create DataLoader object for GNN model input.
@@ -53,7 +53,7 @@ def loadData(X, y, batch_size=4, f_in=8):
 		geodata.append(data)
 		
 	# Creating dataloader
-	loader = DataLoader(geodata, batch_size=batch_size, shuffle=True)
+	loader = DataLoader(geodata, batch_size=batch_size, shuffle=shuf)
 
 	# Return loader
 	return loader
