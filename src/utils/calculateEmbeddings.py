@@ -27,8 +27,7 @@ def smiles2X(smiles):
 	for node in mol.GetAtoms():
 		node_X = [
 		node.GetAtomicNum(), node.GetTotalDegree(),
-		node.GetTotalValence(), node.GetFormalCharge(),
-		node.GetTotalNumHs(), node.GetNumRadicalElectrons(),
+		node.GetValence(Chem.ValenceType.IMPLICIT), node.GetFormalCharge(),
 		int(node.GetHybridization()), int(node.GetIsAromatic())]
 		
 		# Append node i embedding in X

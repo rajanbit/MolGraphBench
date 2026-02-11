@@ -1,5 +1,0 @@
-Model = LR 
-Model Params = {'fit_intercept': True, 'positive': False}
-MAE = 1.46
-RMSE = 2.08
-Pearson correlation coefficient = 0.58, P-value= 0.0

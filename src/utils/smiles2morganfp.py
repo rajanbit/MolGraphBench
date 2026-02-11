@@ -6,7 +6,7 @@ from rdkit import Chem
 from rdkit.Chem.rdFingerprintGenerator import GetMorganGenerator
 
 # Function to convert smiles into morgan fingerprint (FP)
-def smiles2MorganFP(smiles, radius=2, nBits=2048):
+def smiles2MorganFP(smiles, radius=2, nBits=1024):
 	mol = Chem.MolFromSmiles(smiles)
 	if mol is None:
 		return None

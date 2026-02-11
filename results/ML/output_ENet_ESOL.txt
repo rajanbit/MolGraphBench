@@ -1,5 +1,0 @@
-Model = ENet 
-Model Params = {'alpha': 0.01, 'l1_ratio': 0.2, 'max_iter': 1000}
-MAE = 0.95
-RMSE = 1.23
-Pearson correlation coefficient = 0.77, P-value= 0.0

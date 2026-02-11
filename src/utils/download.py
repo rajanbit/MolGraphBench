@@ -15,17 +15,6 @@ def download_esol():
 		print(f"An unexpected error occurred while downloading: {e}")
 
 # Download function 2
-def download_freeSolv():
-	URL = "https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/SAMPL.csv"
-	FilePath = "data/FreeSolv.csv"
-
-	try:
-		urlretrieve(URL, FilePath)
-
-	except Exception as e:
-		print(f"An unexpected error occurred while downloading: {e}")
-
-# Download function 3
 def download_lipophilicity():
 	URL = "https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/Lipophilicity.csv"
 	FilePath = "data/Lipophilicity.csv"
@@ -36,7 +25,7 @@ def download_lipophilicity():
 	except Exception as e:
 		print(f"An unexpected error occurred while downloading: {e}")
 
-# Download function 4
+# Download function 3
 def download_rt():
 
 	files = ["HILIC-train.txt","HILIC-val.txt","HILIC-test.txt"]
@@ -69,7 +58,6 @@ def download_b3db():
 # Download all datasets
 def download_all():
 	download_esol()
-	download_freeSolv()
 	download_lipophilicity()
 	download_rt()
 	download_b3db()
