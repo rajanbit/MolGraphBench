@@ -47,6 +47,13 @@ def TrainGNN(model, training_loader, epochs=10, learning_rate=0.01, w_decay=1e-4
 		for data in training_loader:
 			data = data.to(device)
 			optimizer.zero_grad()
+
+############################### CKA Analysis Block ##########################
+
+#			out, _ = model(data)
+
+#############################################################################
+
 			out = model(data)
 			loss = mse_loss(out.view(-1), data.y.view(-1))
 			loss.backward()

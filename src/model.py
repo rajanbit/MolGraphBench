@@ -40,7 +40,17 @@ class GNNModel(torch.nn.Module):
 		
 		# Readout
 		x = global_mean_pool(x, batch)
-		
+
+############################### CKA Analysis Block ##########################
+
+		# Store embedding
+#		x_embed = x.detach().cpu().numpy()
+
+		# Return regresson and embeddings
+#		return self.post_mp(x), x_embed
+
+#############################################################################
+
 		# Regression
 		return self.post_mp(x)
 
