@@ -1,5 +1,5 @@
 Data,Model,Model Params,MAE,RMSE
-B3DB,LR,"{'fit_intercept': True, 'positive': False}",0.53,0.74
-B3DB,SVM,"{'C': 1, 'epsilon': 0.05, 'gamma': 'scale', 'kernel': 'rbf'}",0.38,0.53
-B3DB,RF,"{'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 5, 'min_samples_split': 4, 'n_estimators': 200}",0.47,0.61
-B3DB,XGB,"{'alpha': 0, 'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 200, 'subsample': 0.8}",0.4,0.54
+B3DB,LR,"{'fit_intercept': True, 'positive': False}",0.8,1.3
+B3DB,SVM,"{'C': 10, 'epsilon': 0.05, 'gamma': 'scale', 'kernel': 'rbf'}",0.4,0.55
+B3DB,RF,"{'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 5, 'min_samples_split': 4, 'n_estimators': 200}",0.49,0.63
+B3DB,XGB,"{'alpha': 0, 'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 200, 'subsample': 0.8}",0.42,0.55
