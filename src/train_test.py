@@ -72,6 +72,14 @@ def TrainGNN(model, training_loader, validation_loader, epochs=10, learning_rate
 		with torch.no_grad():
 			for data in validation_loader:
 				data = data.to(device)
+
+
+############################### CKA Analysis Block ##########################
+
+#				out, _ = model(data)
+
+#############################################################################
+
 				out = model(data)
 				loss = mse_loss(out.view(-1), data.y.view(-1))
 				val_loss += loss.item()
