@@ -1,56 +1,84 @@
 # Importing modules
 import torch
 import torch.nn.functional as F
-from torch.nn import Linear, Sequential, ReLU, Dropout
-from torch_geometric.nn import GCNConv, GATConv, GINConv, SAGEConv, global_mean_pool
+from torch.nn import Sequential, Linear, ReLU, BatchNorm1d, Dropout
+from torch_geometric.nn import GCNConv, GATv2Conv, GINConv, SAGEConv
+from torch_geometric.nn import global_mean_pool, global_add_pool
 
 ##################################### GNN MODEL ########################################
 #########################################################################################
 
 class GNNModel(torch.nn.Module):
-	def __init__(self, num_features, hidden_dim, model_type='GCN', dropout=0.2):
+	def __init__(self, num_features, hidden_dim, model_type='GCN', num_layers=3, dropout=0.2):
 		super().__init__()
-		self.dropout_rate = dropout
+		self.model_type = model_type
+		self.dropout_rate = dropout # Fix: Define dropout_rate
 		
-		# Message passing layer
-		if model_type == 'GCN': # GCN
-			self.conv = GCNConv(num_features, hidden_dim)
-		elif model_type == 'GAT': # GAT
-			self.conv = GATConv(num_features, hidden_dim, heads=1, concat=False)
-		elif model_type == 'GIN': # GIN
-			gin_nn = Sequential(Linear(num_features, hidden_dim), ReLU(), Linear(hidden_dim, hidden_dim))
-			self.conv = GINConv(gin_nn)
-		elif model_type == 'GraphSAGE': # GraphSAGE
-			self.conv = SAGEConv(num_features, hidden_dim, aggr='mean')
+		self.convs = torch.nn.ModuleList()
+		self.batch_norms = torch.nn.ModuleList()
+		
+		# Project input features to hidden_dim once at the start
+		self.input_proj = Linear(num_features, hidden_dim)
 
-		# MLP regression head
+		for i in range(num_layers):
+			if model_type == 'GCN':
+				conv = GCNConv(hidden_dim, hidden_dim, add_self_loops=True)
+			elif model_type == 'GAT':
+				# heads=4 with concat=True results in hidden_dim output
+				conv = GATv2Conv(hidden_dim, hidden_dim // 4, heads=4, concat=True)
+			elif model_type == 'GIN':
+				nn = Sequential(
+					Linear(hidden_dim, hidden_dim), 
+					ReLU(), 
+					Linear(hidden_dim, hidden_dim)
+				)
+				conv = GINConv(nn, train_eps=True)
+			elif model_type == 'GraphSAGE':
+				conv = SAGEConv(hidden_dim, hidden_dim, aggr='mean', normalize=True)
+			
+			self.convs.append(conv)
+			self.batch_norms.append(BatchNorm1d(hidden_dim))
+
 		self.post_mp = Sequential(
-			Linear(hidden_dim, hidden_dim), # Layer-1
+			Linear(hidden_dim, hidden_dim),
 			ReLU(),
 			Dropout(p=self.dropout_rate),
-			Linear(hidden_dim, 1) # Layer-2
+			Linear(hidden_dim, 1)
 		)
 
 	def forward(self, data):
 		x, edge_index, batch = data.x, data.edge_index, data.batch
 		
-		# Convolution
-		x = self.conv(x, edge_index)
-		x = F.relu(x)
-		
-		# Readout
-		x = global_mean_pool(x, batch)
+		# Initial projection to hidden space
+		x = F.relu(self.input_proj(x))
+
+		# Message Passing Loop
+		for i, conv in enumerate(self.convs):
+			identity = x # Save for residual connection
+			
+			x = conv(x, edge_index)
+			x = self.batch_norms[i](x)
+			x = F.relu(x)
+			
+			# Residual connection (ensures deep models actually train)
+			x = x + identity
+			x = F.dropout(x, p=self.dropout_rate, training=self.training)
+
+		# Global Pooling (Graph-level representation)
+		if self.model_type == 'GIN':
+			x_graph = global_add_pool(x, batch)
+		else:
+			x_graph = global_mean_pool(x, batch)
+
+		# Final Regression Head
+		return self.post_mp(x_graph)
 
 ############################### CKA Analysis Block ##########################
 
 		# Store embedding
-#		x_embed = x.detach().cpu().numpy()
+#		x_embed = x_graph.detach().cpu().numpy()
 
 		# Return regresson and embeddings
-#		return self.post_mp(x), x_embed
+#		return self.post_mp(x_graph), x_embed
 
 #############################################################################
-
-		# Regression
-		return self.post_mp(x)
-

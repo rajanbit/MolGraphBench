@@ -9,7 +9,7 @@ warnings.filterwarnings(
 )
 
 # Model training function | GNN models
-def TrainGNN(model, training_loader, epochs=10, learning_rate=0.01, w_decay=1e-4):
+def TrainGNN(model, training_loader, validation_loader, epochs=10, learning_rate=0.01, w_decay=1e-4):
 
 	'''
 	This function take model, dataloader, number of epochs, learning rate 
@@ -41,9 +41,14 @@ def TrainGNN(model, training_loader, epochs=10, learning_rate=0.01, w_decay=1e-4
 	# Load model to device
 	model = model.to(device)
 
+	# Early stopping setup
+	patience = 10
+	best_val_loss = float('inf')
+	epochs_without_improvement = 0
+
 	# Training loop
 	for e in range(epochs):
-		total_loss = 0
+		train_loss = 0
 		for data in training_loader:
 			data = data.to(device)
 			optimizer.zero_grad()
@@ -58,7 +63,43 @@ def TrainGNN(model, training_loader, epochs=10, learning_rate=0.01, w_decay=1e-4
 			loss = mse_loss(out.view(-1), data.y.view(-1))
 			loss.backward()
 			optimizer.step()
-			total_loss += loss.item()
+			train_loss += loss.item()
+
+
+		# Validation loss
+		model.eval()
+		val_loss = 0
+		with torch.no_grad():
+			for data in validation_loader:
+				data = data.to(device)
+
+
+############################### CKA Analysis Block ##########################
+
+#				out, _ = model(data)
+
+#############################################################################
+
+				out = model(data)
+				loss = mse_loss(out.view(-1), data.y.view(-1))
+				val_loss += loss.item()
+
+		avg_train_loss = train_loss / len(training_loader)
+		avg_val_loss = val_loss / len(validation_loader)
+
+		# Early stopping
+		if avg_val_loss < best_val_loss:
+			best_val_loss = avg_val_loss
+			epochs_without_improvement = 0
+			best_model_weights = model.state_dict().copy()
+
+		else:
+			epochs_without_improvement += 1
+
+		if epochs_without_improvement >= patience:
+			model.load_state_dict(best_model_weights)
+			break
+
 
 	# Return trained model
 	return model
