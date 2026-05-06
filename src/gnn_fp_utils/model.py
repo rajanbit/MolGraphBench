@@ -1,9 +1,9 @@
 # Importing modules
 import torch
 import torch.nn.functional as F
-from torch.nn import Sequential, Linear, ReLU, BatchNorm1d, Dropout
+from torch.nn import Sequential, Linear, ReLU, Dropout
 from torch_geometric.nn import GCNConv, GATv2Conv, GINConv, SAGEConv
-from torch_geometric.nn import global_mean_pool, global_add_pool
+from torch_geometric.nn import GraphNorm, global_mean_pool, global_add_pool
 
 ##################################### GNN MODEL ########################################
 #########################################################################################
@@ -37,7 +37,7 @@ class GNNModel(torch.nn.Module):
 				conv = SAGEConv(hidden_dim, hidden_dim, aggr='mean', normalize=True)
 
 			self.convs.append(conv)
-			self.batch_norms.append(BatchNorm1d(hidden_dim))
+			self.batch_norms.append(GraphNorm(hidden_dim))
 
 		# Finger-print projection
 		self.fp_proj = Linear(1024, hidden_dim)
@@ -81,4 +81,5 @@ class GNNModel(torch.nn.Module):
 		x_combined = torch.cat([x_graph, x_fp], dim=1)
 
 		# Final Regression Head
-		return self.post_mp(x_combined)
+		return self.post_mp(x_combined), None
+

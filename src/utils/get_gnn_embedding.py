@@ -22,6 +22,7 @@ def GetGNNEmbed(model, testing_loader):
 
 	model.eval()
 	gnn_embeddings = []
+	y_test = []
 
 	# Device
 	device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -36,9 +37,11 @@ def GetGNNEmbed(model, testing_loader):
 			data = data.to(device)
 			out, embed = model(data)
 			gnn_embeddings.append(embed)
+			y_test.append(data.y.view(-1).cpu())
 
 	# vstack the embedding output
 	gnn_embeddings = np.vstack(gnn_embeddings)
+	y_test = torch.cat(y_test).tolist()
 
 	# Return embeddings
-	return gnn_embeddings
+	return gnn_embeddings, y_test

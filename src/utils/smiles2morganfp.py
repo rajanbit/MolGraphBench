@@ -17,12 +17,12 @@ def smiles2MorganFP(smiles, radius=2, nBits=1024):
 	return arr
 
 # Generate morgan FP for list/array of smiles
-def MorganFP(smiles_list):
+def MorganFP(smiles_list, bits):
 	# Generate FP
 	fps = []
 	valid_smiles = []
 	for smi in smiles_list:
-		fp = smiles2MorganFP(smi)
+		fp = smiles2MorganFP(smi, nBits=bits)
 		if fp is not None:
 			fps.append(fp)
 			valid_smiles.append(smi)
