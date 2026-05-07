@@ -1,0 +1,5 @@
+Data,Model,Model Params,MAE,RMSE
+RT,LR,"{'fit_intercept': True, 'positive': False}",546.96,787.51
+RT,SVM,"{'C': 10, 'epsilon': 0.05, 'gamma': 'scale', 'kernel': 'rbf'}",103.62,130.04
+RT,RF,"{'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 5, 'min_samples_split': 4, 'n_estimators': 200}",97.41,113.7
+RT,XGB,"{'alpha': 0, 'colsample_bytree': 0.8, 'learning_rate': 0.01, 'max_depth': 6, 'n_estimators': 100, 'subsample': 0.8}",107.19,121.48

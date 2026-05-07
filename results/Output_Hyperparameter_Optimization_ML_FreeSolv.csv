@@ -1,0 +1,5 @@
+Data,Model,Model Params,MAE,RMSE
+FreeSolv,LR,"{'fit_intercept': True, 'positive': False}",2.07,3.42
+FreeSolv,SVM,"{'C': 10, 'epsilon': 0.05, 'gamma': 'scale', 'kernel': 'rbf'}",1.42,2.49
+FreeSolv,RF,"{'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 5, 'min_samples_split': 4, 'n_estimators': 200}",2.53,3.7
+FreeSolv,XGB,"{'alpha': 0, 'colsample_bytree': 0.8, 'learning_rate': 0.01, 'max_depth': 6, 'n_estimators': 100, 'subsample': 0.8}",2.39,3.54
