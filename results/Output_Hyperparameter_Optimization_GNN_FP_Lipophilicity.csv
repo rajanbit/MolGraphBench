@@ -1,0 +1,17 @@
+Data,Model,h_dim,b_size,lr,w_decay,d_out,layers,MAE,RMSE
+Lipophilicity,GCN,32,32,0.001,0.0001,0.3,2,0.59,0.82
+Lipophilicity,GCN,32,32,0.001,0.0001,0.3,3,0.55,0.78
+Lipophilicity,GCN,64,32,0.001,0.0001,0.3,2,0.59,0.82
+Lipophilicity,GCN,64,32,0.001,0.0001,0.3,3,0.57,0.79
+Lipophilicity,GAT,32,32,0.001,0.0001,0.3,2,0.6,0.83
+Lipophilicity,GAT,32,32,0.001,0.0001,0.3,3,0.57,0.82
+Lipophilicity,GAT,64,32,0.001,0.0001,0.3,2,0.58,0.8
+Lipophilicity,GAT,64,32,0.001,0.0001,0.3,3,0.57,0.79
+Lipophilicity,GIN,32,32,0.001,0.0001,0.3,2,0.55,0.76
+Lipophilicity,GIN,32,32,0.001,0.0001,0.3,3,0.59,0.79
+Lipophilicity,GIN,64,32,0.001,0.0001,0.3,2,0.48,0.7
+Lipophilicity,GIN,64,32,0.001,0.0001,0.3,3,0.54,0.73
+Lipophilicity,GraphSAGE,32,32,0.001,0.0001,0.3,2,0.6,0.84
+Lipophilicity,GraphSAGE,32,32,0.001,0.0001,0.3,3,0.57,0.81
+Lipophilicity,GraphSAGE,64,32,0.001,0.0001,0.3,2,0.58,0.8
+Lipophilicity,GraphSAGE,64,32,0.001,0.0001,0.3,3,0.55,0.79
