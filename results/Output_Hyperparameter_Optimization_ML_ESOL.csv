@@ -1,5 +1,5 @@
 Data,Model,Model Params,MAE,RMSE
-ESOL,LR,"{'fit_intercept': True, 'positive': False}",3.13,4.24
-ESOL,SVM,"{'C': 10, 'epsilon': 0.05, 'gamma': 'scale', 'kernel': 'rbf'}",0.77,0.99
-ESOL,RF,"{'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 5, 'min_samples_split': 4, 'n_estimators': 200}",1.24,1.58
-ESOL,XGB,"{'alpha': 0, 'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 200, 'subsample': 0.8}",0.91,1.16
+ESOL,LR,"{'fit_intercept': True, 'positive': False}",3.6,4.98
+ESOL,SVM,"{'C': 10, 'epsilon': 0.05, 'gamma': 'scale', 'kernel': 'rbf'}",0.66,0.92
+ESOL,RF,"{'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 5, 'min_samples_split': 4, 'n_estimators': 200}",1.22,1.59
+ESOL,XGB,"{'alpha': 0, 'colsample_bytree': 0.8, 'learning_rate': 0.01, 'max_depth': 6, 'n_estimators': 100, 'subsample': 0.8}",1.27,1.62

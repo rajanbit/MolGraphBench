@@ -55,10 +55,22 @@ def download_b3db():
 	except Exception as e:
 		print(f"An unexpected error occurred while downloading: {e}")
 
+# Download function 5
+def download_freeSolv():
+	URL = "https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/SAMPL.csv"
+	FilePath = "data/FreeSolv.csv"
+
+	try:
+		urlretrieve(URL, FilePath)
+
+	except Exception as e:
+		print(f"An unexpected error occurred while downloading: {e}")
+
 # Download all datasets
 def download_all():
 	download_esol()
 	download_lipophilicity()
 	download_rt()
 	download_b3db()
+	download_freeSolv()
 

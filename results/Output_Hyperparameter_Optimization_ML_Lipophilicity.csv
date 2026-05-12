@@ -1,5 +1,5 @@
 Data,Model,Model Params,MAE,RMSE
-Lipophilicity,LR,"{'fit_intercept': True, 'positive': False}",1.39,1.83
-Lipophilicity,SVM,"{'C': 10, 'epsilon': 0.05, 'gamma': 'scale', 'kernel': 'rbf'}",0.76,0.94
-Lipophilicity,RF,"{'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 5, 'min_samples_split': 4, 'n_estimators': 200}",0.87,1.1
-Lipophilicity,XGB,"{'alpha': 0, 'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 6, 'n_estimators': 200, 'subsample': 0.8}",0.76,0.95
+Lipophilicity,LR,"{'fit_intercept': True, 'positive': False}",0.72,0.99
+Lipophilicity,SVM,"{'C': 10, 'epsilon': 0.05, 'gamma': 'scale', 'kernel': 'rbf'}",0.55,0.78
+Lipophilicity,RF,"{'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 5, 'min_samples_split': 4, 'n_estimators': 200}",0.75,0.96
+Lipophilicity,XGB,"{'alpha': 0, 'colsample_bytree': 0.8, 'learning_rate': 0.01, 'max_depth': 6, 'n_estimators': 100, 'subsample': 0.8}",0.87,1.06

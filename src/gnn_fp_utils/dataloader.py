@@ -15,7 +15,7 @@ class MoleculeData(Data):
 		return super().__cat_dim__(key, value, *args, **kwargs)
 
 # Dataloader function | GNN models
-def loadData(data, batch_size=4, f_in=6, shuf=True):
+def loadData(data, batch_size=4, f_in=118, shuf=True):
 	'''
 	This function take numpy array of SMILES strings and target labels
 	as input and create DataLoader object for GNN model input.
@@ -51,9 +51,6 @@ def loadData(data, batch_size=4, f_in=6, shuf=True):
 
 		# Calculate node embedding matrix for each smiles
 		X_matrix = smiles2X(S[i])
-
-		if f_in <= 6:
-			X_matrix = X_matrix[:, :f_in]
 
 		# Converting to tensor
 		A_tensor = torch.tensor(A_matrix, dtype=torch.float)

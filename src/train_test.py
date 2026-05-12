@@ -42,7 +42,7 @@ def TrainGNN(model, training_loader, validation_loader, epochs=10, learning_rate
 	model = model.to(device)
 
 	# Early stopping setup
-	patience = 10
+	patience = 20
 	best_val_loss = float('inf')
 	epochs_without_improvement = 0
 
@@ -52,14 +52,7 @@ def TrainGNN(model, training_loader, validation_loader, epochs=10, learning_rate
 		for data in training_loader:
 			data = data.to(device)
 			optimizer.zero_grad()
-
-############################### CKA Analysis Block ##########################
-
-#			out, _ = model(data)
-
-#############################################################################
-
-			out = model(data)
+			out, _ = model(data)
 			loss = mse_loss(out.view(-1), data.y.view(-1))
 			loss.backward()
 			optimizer.step()
@@ -72,15 +65,7 @@ def TrainGNN(model, training_loader, validation_loader, epochs=10, learning_rate
 		with torch.no_grad():
 			for data in validation_loader:
 				data = data.to(device)
-
-
-############################### CKA Analysis Block ##########################
-
-#				out, _ = model(data)
-
-#############################################################################
-
-				out = model(data)
+				out, _ = model(data)
 				loss = mse_loss(out.view(-1), data.y.view(-1))
 				val_loss += loss.item()
 
@@ -136,7 +121,7 @@ def TestGNN(model, testing_loader):
 		# Validation/Testing loop
 		for data in testing_loader:
 			data = data.to(device)
-			out = model(data)
+			out, _ = model(data)
 			y_pred.append(out.view(-1).cpu())
 			y_test.append(data.y.view(-1).cpu())
 

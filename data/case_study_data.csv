@@ -1,0 +1,8 @@
+smiles,data1,model1,target1,data2,model2,target2
+C=CC(C)C,ESOL,GraphSAGE,-2.73,FreeSolv,GCN,1.83
+CCCC(C)=O,ESOL,GraphSAGE,-0.19,FreeSolv,GCN,-3.52
+Nc1cccc(Cl)c1,ESOL,GraphSAGE,-1.37,FreeSolv,GCN,-5.82
+CN1C2CCC1CC(OC(=O)C(CO)c1ccccc1)C2,B3DB,GCN,-0.06,Lipophilicity,GraphSAGE,-0.09
+NC(=O)N1c2ccccc2C=Cc2ccccc21,B3DB,GCN,-0.1,Lipophilicity,GraphSAGE,1.65
+COc1cccc2c(O)c3c(c(O)c12)C(=O)C1=C(CC(O)(C(=O)CO)CC1OC1CC(N)C(O)C(C)O1)C3=O,B3DB,GCN,-0.83,RT,GraphSAGE,361.01904
+Nc1nc2ccc(OC(F)(F)F)cc2s1,Lipophilicity,GraphSAGE,3.34,RT,GraphSAGE,61.82802

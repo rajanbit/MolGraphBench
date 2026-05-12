@@ -8,7 +8,7 @@ from src.utils.calculateAdjacency import smiles2A
 from src.utils.calculateEmbeddings import smiles2X
 
 # Dataloader function | GNN models
-def loadData(X, y, batch_size=4, f_in=6, shuf=True):
+def loadData(X, y, batch_size=4, f_in=118, shuf=True):
 	'''
 	This function take numpy array of SMILES strings and target labels
 	as input and create DataLoader object for GNN model input.
@@ -39,9 +39,6 @@ def loadData(X, y, batch_size=4, f_in=6, shuf=True):
 
 		# Calculate node embedding matrix for each smiles
 		X_matrix = smiles2X(X[i])
-
-		if f_in <= 6:
-			X_matrix = X_matrix[:, :f_in]
 
 		# Converting to tensor
 		A_tensor = torch.tensor(A_matrix, dtype=torch.float)

@@ -1,9 +1,9 @@
 # Importing modules
 import torch
 import torch.nn.functional as F
-from torch.nn import Sequential, Linear, ReLU, BatchNorm1d, Dropout
+from torch.nn import Sequential, Linear, ReLU, Dropout
 from torch_geometric.nn import GCNConv, GATv2Conv, GINConv, SAGEConv
-from torch_geometric.nn import global_mean_pool, global_add_pool
+from torch_geometric.nn import GraphNorm, global_mean_pool, global_add_pool
 
 ##################################### GNN MODEL ########################################
 #########################################################################################
@@ -13,10 +13,10 @@ class GNNModel(torch.nn.Module):
 		super().__init__()
 		self.model_type = model_type
 		self.dropout_rate = dropout # Fix: Define dropout_rate
-		
+
 		self.convs = torch.nn.ModuleList()
 		self.batch_norms = torch.nn.ModuleList()
-		
+
 		# Project input features to hidden_dim once at the start
 		self.input_proj = Linear(num_features, hidden_dim)
 
@@ -35,9 +35,9 @@ class GNNModel(torch.nn.Module):
 				conv = GINConv(nn, train_eps=True)
 			elif model_type == 'GraphSAGE':
 				conv = SAGEConv(hidden_dim, hidden_dim, aggr='mean', normalize=True)
-			
+
 			self.convs.append(conv)
-			self.batch_norms.append(BatchNorm1d(hidden_dim))
+			self.batch_norms.append(GraphNorm(hidden_dim))
 
 		self.post_mp = Sequential(
 			Linear(hidden_dim, hidden_dim),
@@ -48,18 +48,18 @@ class GNNModel(torch.nn.Module):
 
 	def forward(self, data):
 		x, edge_index, batch = data.x, data.edge_index, data.batch
-		
+
 		# Initial projection to hidden space
 		x = F.relu(self.input_proj(x))
 
 		# Message Passing Loop
 		for i, conv in enumerate(self.convs):
 			identity = x # Save for residual connection
-			
+
 			x = conv(x, edge_index)
 			x = self.batch_norms[i](x)
 			x = F.relu(x)
-			
+
 			# Residual connection (ensures deep models actually train)
 			x = x + identity
 			x = F.dropout(x, p=self.dropout_rate, training=self.training)
@@ -70,15 +70,9 @@ class GNNModel(torch.nn.Module):
 		else:
 			x_graph = global_mean_pool(x, batch)
 
-		# Final Regression Head
-		return self.post_mp(x_graph)
-
-############################### CKA Analysis Block ##########################
-
 		# Store embedding
-#		x_embed = x_graph.detach().cpu().numpy()
+		x_embed = x_graph.detach().cpu().numpy()
 
 		# Return regresson and embeddings
-#		return self.post_mp(x_graph), x_embed
+		return self.post_mp(x_graph), x_embed
 
-#############################################################################
