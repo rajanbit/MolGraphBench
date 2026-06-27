@@ -10,7 +10,7 @@ MolGraphBench is a comprehensive benchmark of four commonly used GNN models (GCN
 ## License and Citation
 The repository is released under the terms of the **MIT License**. See the [LICENSE](https://github.com/rajanbit/MolGraphBench/blob/main/LICENSE) file for details.
 
-The paper is published under **CC BY 4.0**.
+The [preprint](https://doi.org/10.48550/arXiv.2602.20573) is published under **CC BY 4.0**.
 
 ## Citation
-> Rajan, & Gupta, I. (2026). MolGraphBench: A Benchmark of GNN Architectures for Molecular Regression Tasks (Version 3). arXiv. https://doi.org/10.48550/ARXIV.2602.20573
+> Rajan, & Gupta, I. (2026). MolGraphBench: A Benchmark of GNN Architectures for Molecular Regression Tasks (Version 3). arXiv. https://doi.org/10.48550/arXiv.2602.20573
