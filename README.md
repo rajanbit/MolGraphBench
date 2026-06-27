@@ -5,7 +5,7 @@
 # MolGraphBench: A Benchmark of GNN Architectures for Molecular Regression Tasks
 MolGraphBench is a comprehensive benchmark of four commonly used GNN models (GCN, GAT, GraphSAGE and GIN) for molecular property prediction. Benchmarking results demonstrate graph convolutional network (GCN) and graph isomorphism networks (GIN) as the optimal GNN architectures for molecular graph regression tasks, based on absolute performance, training efficiency, transfer learning and prediction quality.
 
-<p align="center" width="100%"> <img width="90%" src="https://raw.githubusercontent.com/rajanbit/MolGraphBench/main/docs/TOC-Graphic.png"></p>
+<p align="center" width="95%"> <img width="100%" src="https://github.com/rajanbit/MolGraphBench/blob/main/doc/TOC-Graphic.png"></p>
 
 ## License and Citation
 The repository is released under the terms of the **MIT License**. See the [LICENSE](https://github.com/rajanbit/MolGraphBench/blob/main/LICENSE) file for details.
